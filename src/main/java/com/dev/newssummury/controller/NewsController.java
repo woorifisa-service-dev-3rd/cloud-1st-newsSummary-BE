@@ -1,8 +1,10 @@
 package com.dev.newssummury.controller;
 
+import com.dev.newssummury.service.ParserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +25,9 @@ import com.dev.newssummury.domain.*;
 @Log4j2
 @RequestMapping("/news")
 @RestController
+@RequiredArgsConstructor
 public class NewsController {
-
+    private final ParserService parserService;
     @GetMapping("/list/{text}")
     public ResponseEntity<String> list(@PathVariable String text, Model model) {
         // 네이버 검색 API 요청
@@ -55,7 +58,7 @@ public class NewsController {
                 RestTemplate restTemplate = new RestTemplate();
                 ResponseEntity<String> resp = restTemplate.exchange(req, String.class);
                 // JSON 데이터 파싱
-
+                parserService.processJson(resp.getBody());
                 return resp;
             }
         }
