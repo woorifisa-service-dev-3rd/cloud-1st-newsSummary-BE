@@ -22,7 +22,7 @@ import com.dev.newssummury.domain.*;
 
 @Log4j2
 @RequestMapping("/news")
-@Controller
+@RestController
 public class NewsController {
 
     @GetMapping("/list/{text}")
