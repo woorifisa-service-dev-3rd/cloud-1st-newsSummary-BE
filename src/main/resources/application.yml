@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: newsSummury
+  datasource:
+    url: jdbc:mysql://3.35.207.4:3306/news?characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    open-in-view: false
+
+
+  ai:
+    openai:
+     api-key:
+       ${OPENAI_API_KEY}
+    chat:
+      options:
+        model: gpt-4
+
+
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  port: 8080
+
+
+
