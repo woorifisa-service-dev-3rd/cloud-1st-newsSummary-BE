@@ -15,11 +15,11 @@ public class InitController {
     private final ParserService parserService;
     private final ArticleService articleService;
 
-    @GetMapping("/parser")
-    public String parser() throws IOException {
-        parserService.parseContentFromUrl("test");
-        return "Hello World";
-    }
+//    @GetMapping("/parser")
+//    public String parser() throws IOException {
+//        parserService.processJson("test");
+//        return "Hello World";
+//    }
 
     @GetMapping("/getArticle")
     public String getTestArticle() {
