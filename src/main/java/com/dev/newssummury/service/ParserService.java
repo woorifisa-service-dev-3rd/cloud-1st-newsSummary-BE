@@ -4,6 +4,7 @@ import com.dev.newssummury.domain.Article;
 import com.dev.newssummury.domain.ResponseData;
 import com.dev.newssummury.repository.ArticleRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,8 +24,8 @@ public class ParserService {
     public void processJson(String jsonData) {
         try {
             // ObjectMapper를 사용하여 JSON을 ApiResponse 객체로 변환
-            ObjectMapper objectMapper = new ObjectMapper();
-            ResponseData apiResponse = objectMapper.readValue(jsonData, ResponseData.class);
+            Gson gson = new Gson();
+            ResponseData apiResponse = gson.fromJson(jsonData, ResponseData.class);
 
             List<Article> articleList =
                     apiResponse.getItems().stream().map(item ->

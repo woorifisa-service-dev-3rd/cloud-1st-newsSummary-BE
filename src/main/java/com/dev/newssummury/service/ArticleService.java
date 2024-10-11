@@ -25,8 +25,12 @@ public class ArticleService {
     }
 
     public Article findArticleById(Long id) {
-        return articleRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Article not found"));
+        Article article= articleRepository.findById(id)
+                .orElseThrow(() -> {log.info("엔티티 없어유");
+                    return new RuntimeException("Article not found");
+                } );
+
+        return article;
     }
 
     public Page<ResArticleNoContent> findAllWithNoContent() {
