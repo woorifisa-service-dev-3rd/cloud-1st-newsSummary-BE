@@ -30,6 +30,7 @@ public class ArticleController {
 
         String aiContent = chatService.generation(article);
 
+
         ResArticle resArticle = new ResArticle();
         resArticle.setId(article.getId());
         resArticle.setTitle(article.getTitle());
