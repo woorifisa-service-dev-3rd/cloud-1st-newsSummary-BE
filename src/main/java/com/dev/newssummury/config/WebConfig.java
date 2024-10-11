@@ -21,14 +21,4 @@ public class WebConfig implements WebMvcConfigurer {
         filter.setForceEncoding(true);
         return filter;
     }
-    @Bean
-    RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getInterceptors().add((request, body, execution) -> {
-            request.getHeaders().add("Authorization", "Bearer " + apiKey);
-            return execution.execute(request, body);
-        });
-
-        return restTemplate;
-    }
 }
