@@ -13,6 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Value("${OPENAI_API_KEY}")
     private String apiKey;
 
+
     @Bean
     public CharacterEncodingFilter characterEncodingFilter() {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
