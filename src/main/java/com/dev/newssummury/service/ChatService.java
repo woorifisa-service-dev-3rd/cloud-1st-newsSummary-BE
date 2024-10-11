@@ -20,6 +20,7 @@ public class ChatService {
         String userInput = "This is a news article with the title: " + article.getTitle() +
                 ". The content is: " + article.getContent() +
                 ". Please summarize it in three lines in Korean.";
+        log.info("입력값: "+userInput);
         CallResponseSpec callResponseSpec= this.chatClient.prompt()
                 .user(userInput)
                 .call();
