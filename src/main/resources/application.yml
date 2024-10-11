@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: newsSummury
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+    properties:
+        format_sql: true
+
+
+  ai:
+    openai:
+     api-key: ${OPENAI_API_KEY}
+     chat:
+       options:
+         model: gpt-4
+
+
+
