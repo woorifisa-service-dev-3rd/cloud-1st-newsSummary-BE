@@ -33,7 +33,7 @@ import com.dev.newssummury.domain.*;
 public class NewsController {
     private final ParserService parserService;
     @GetMapping("/list/{text}")
-    public ResponseEntity<String> list(@PathVariable String text, Model model) {
+    public ResponseEntity<String> list(@PathVariable String text) {
         // 네이버 검색 API 요청
         String clientId = "_BaFHBBYKCmUh4WzdStY";
         String clientSecret = "nBnhj1wXbc";
